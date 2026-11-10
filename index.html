@@ -4,55 +4,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AURELIVRA, votre bibliothèque numérique de romans et d'histoires extraordinaires.">
-<title>AURELIVRA — Le monde des histoires</title>
+<meta name="description" content="AURELIVRA, une bibliothèque numérique de romans, de mystères et d'histoires captivantes.">
+<title>AURELIVRA — Entrez dans un monde d'histoires</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Arial,sans-serif;background:#101019;color:#f7f2eb}
-header{padding:20px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #302d3a;background:#151420}
+header{padding:20px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #302d3a;background:#151420;position:sticky;top:0;z-index:10}
 .logo{font-size:26px;font-weight:bold;letter-spacing:3px;color:#d9b779}
 nav{display:flex;gap:20px}
 nav a{color:#eee;text-decoration:none;font-size:14px}
 nav a:hover{color:#d9b779}
-.hero{padding:85px 8%;text-align:center;background:linear-gradient(135deg,#302440,#11111b)}
+.hero{padding:95px 8%;text-align:center;background:linear-gradient(135deg,#302440,#11111b)}
 .hero small{color:#d9b779;letter-spacing:3px}
 h1{font-size:clamp(38px,8vw,65px);margin:22px 0}
-.hero p{color:#c5bfcc;max-width:600px;margin:auto;line-height:1.8}
+.hero p{color:#c5bfcc;max-width:650px;margin:auto;line-height:1.9}
 .btn{display:inline-block;margin-top:25px;padding:14px 25px;background:#d9b779;color:#17131c;text-decoration:none;border-radius:5px;font-weight:bold;border:0;cursor:pointer}
-section{padding:60px 8%}
+.btn:hover{background:#f0d49b}
+.btn-secondary{display:inline-block;margin-top:25px;margin-left:10px;padding:13px 24px;border:1px solid #d9b779;color:#d9b779;text-decoration:none;border-radius:5px}
+section{padding:65px 8%}
 h2{font-size:29px;margin-bottom:15px}
 .intro{color:#aaa5b1;margin-bottom:28px;line-height:1.7}
 .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:14px}
 .category{padding:22px 10px;text-align:center;background:#201e2b;border:1px solid #393345;border-radius:9px;color:#eee;cursor:pointer}
 .category span{display:block;font-size:26px;margin-bottom:10px}
-.category:hover{border-color:#d9b779}
+.category:hover{border-color:#d9b779;transform:translateY(-3px)}
 .search{width:100%;padding:15px;background:#201e2b;border:1px solid #494253;border-radius:7px;color:white;font-size:15px;margin-bottom:25px}
 .books{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
-.book{background:#201e2b;border:1px solid #393345;border-radius:10px;overflow:hidden}
-.cover{height:260px;background:linear-gradient(145deg,#514064,#171522);display:flex;align-items:center;justify-content:center;font-size:65px}
+.book{background:#201e2b;border:1px solid #393345;border-radius:10px;overflow:hidden;transition:.3s}
+.book:hover{transform:translateY(-5px);border-color:#d9b779}
+.cover{height:270px;background:linear-gradient(145deg,#514064,#171522);display:flex;align-items:center;justify-content:center;font-size:65px}
 .book-info{padding:20px}
 .tag{color:#d9b779;font-size:12px;letter-spacing:1px}
 .book-info h3{margin-top:10px}
-.book-info p{color:#aaa;margin-top:10px;line-height:1.6;font-size:14px}
-.book-info button{margin-top:17px;padding:11px 17px;background:#d9b779;border:0;border-radius:4px;font-weight:bold;cursor:pointer}
+.book-info p{color:#aaa;margin-top:10px;line-height:1.7;font-size:14px}
+.book-info button{margin-top:17px;padding:12px 17px;background:#d9b779;border:0;border-radius:4px;font-weight:bold;cursor:pointer}
+.book-info button:hover{background:#f0d49b}
+.promo{background:linear-gradient(135deg,#302440,#1a1726);text-align:center}
+.promo p{color:#c5bfcc;max-width:680px;margin:18px auto;line-height:1.9}
+.promo h2{color:#d9b779}
 .about{background:#1c1927;text-align:center}
 .about p{max-width:680px;margin:20px auto;color:#c5bfcc;line-height:1.9}
-.author{background:#211d2c;text-align:center}
-.author p{color:#c5bfcc;line-height:1.8;max-width:650px;margin:15px auto}
-footer{padding:30px;text-align:center;color:#aaa;border-top:1px solid #302d3a;font-size:13px;line-height:2}
 .detail{display:none;background:#211d2c;padding:30px;border-radius:10px;margin-top:25px}
 .detail h3{color:#d9b779;margin-bottom:15px}
-.detail p{line-height:1.8;color:#ccc}
+.detail p{line-height:1.8;color:#ccc;margin-top:10px}
+footer{padding:30px;text-align:center;color:#aaa;border-top:1px solid #302d3a;font-size:13px;line-height:2}
 @media(max-width:600px){
 header{padding:17px 5%;flex-direction:column;gap:15px}
 nav{gap:13px;flex-wrap:wrap;justify-content:center}
 nav a{font-size:12px}
 .hero{padding:65px 6%}
 section{padding:45px 6%}
+.btn-secondary{margin-left:0}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -60,22 +68,30 @@ section{padding:45px 6%}
 <nav>
 <a href="#accueil">Accueil</a>
 <a href="#categories">Genres</a>
-<a href="#romans">Romans</a>
-<a href="#auteurs">Auteurs</a>
+<a href="#romans">Bibliothèque</a>
+<a href="#apropos">À propos</a>
 </nav>
 </header>
 
 <main>
+
 <div class="hero" id="accueil">
 <small>BIENVENUE DANS UN AUTRE UNIVERS</small>
 <h1>Chaque livre ouvre<br>un nouveau monde.</h1>
-<p>Découvrez des histoires extraordinaires, explorez des univers fascinants et laissez votre imagination vous guider.</p>
-<a class="btn" href="#romans">Explorer la bibliothèque</a>
+<p>
+Laissez-vous emporter par des romans captivants,
+des mystères fascinants, des histoires d'amour
+et des aventures inoubliables.
+Votre prochaine histoire préférée vous attend.
+</p>
+<a class="btn" href="#romans">Découvrir les romans</a>
+<a class="btn-secondary" href="#categories">Explorer les univers</a>
 </div>
 
 <section id="categories">
 <h2>Explorez les univers</h2>
-<p class="intro">Choisissez votre genre littéraire préféré.</p>
+<p class="intro">Quelle sera votre prochaine aventure ? Choisissez un univers et laissez votre imagination vous guider.</p>
+
 <div class="categories">
 <div class="category" onclick="filterBooks('Horreur')"><span>👻</span>Horreur</div>
 <div class="category" onclick="filterBooks('Romance')"><span>❤️</span>Romance</div>
@@ -86,30 +102,43 @@ section{padding:45px 6%}
 </section>
 
 <section id="romans">
-<h2>Notre bibliothèque</h2>
-<p class="intro">Découvrez les œuvres disponibles sur AURELIVRA.</p>
+<h2>Les romans à découvrir</h2>
+<p class="intro">
+Des histoires qui éveillent la curiosité, font vibrer les émotions
+et donnent envie de tourner chaque nouvelle page.
+</p>
 
-<input class="search" id="search" type="search" placeholder="Rechercher un roman ou un auteur..." oninput="searchBooks()">
+<input class="search" id="search" type="search"
+placeholder="Rechercher un roman..."
+oninput="searchBooks()">
 
 <div class="books" id="bookList">
 
-<div class="book" data-title="les amants de la nuit master" data-category="Fantastique Romance Mystère">
+<div class="book"
+data-title="les amants de la nuit master"
+data-category="Fantastique Romance Mystère">
+
 <div class="cover">🌙</div>
+
 <div class="book-info">
-<span class="tag">FANTASTIQUE · ROMANCE</span>
+<span class="tag">FANTASTIQUE · ROMANCE · MYSTÈRE</span>
 <h3>LES AMANTS DE LA NUIT</h3>
 <p>Auteur : MASTER</p>
-<p>Une histoire mystérieuse à découvrir. Plongez dans un univers fantastique où chaque secret peut changer un destin.</p>
+<p>
+Quand la nuit tombe, certains secrets se réveillent.
+Plongez dans une histoire mystérieuse où l'amour,
+la peur et l'inconnu se rencontrent.
+</p>
 <button onclick="showDetails()">Découvrir le roman</button>
 </div>
 </div>
 
 <div class="book" data-title="prochainement" data-category="Horreur">
-<div class="cover">📖</div>
+<div class="cover">👻</div>
 <div class="book-info">
 <span class="tag">HORREUR</span>
 <h3>Prochainement</h3>
-<p>De nouvelles histoires vous attendent bientôt.</p>
+<p>Une nouvelle histoire vous attend bientôt. Osez-vous découvrir ce qui se cache dans l'ombre ?</p>
 </div>
 </div>
 
@@ -118,7 +147,7 @@ section{padding:45px 6%}
 <div class="book-info">
 <span class="tag">SCIENCE-FICTION</span>
 <h3>Prochainement</h3>
-<p>Explorez des univers extraordinaires.</p>
+<p>Préparez-vous à explorer des mondes inconnus et des aventures extraordinaires.</p>
 </div>
 </div>
 
@@ -128,27 +157,47 @@ section{padding:45px 6%}
 <h3>LES AMANTS DE LA NUIT</h3>
 <p><strong>Auteur :</strong> MASTER</p>
 <p><strong>Genre :</strong> Fantastique, Romance et Mystère</p>
-<p>Un roman fantastique à découvrir. Son résumé complet et son édition numérique seront ajoutés ici.</p>
+<p>
+Certains secrets ne devraient jamais être révélés.
+Certaines rencontres peuvent bouleverser un destin.
+Découvrez bientôt l'histoire complète de ce roman.
+</p>
 </div>
+
 </section>
 
-<section class="author" id="auteurs">
-<h2>Vous êtes auteur ?</h2>
-<p>AURELIVRA accueille les écrivains et les créateurs d'histoires, qu'ils écrivent eux-mêmes ou utilisent l'intelligence artificielle.</p>
-<p>Chaque histoire mérite une chance d'être découverte.</p>
-<a class="btn" href="mailto:contact@aurelivra.com">Nous contacter</a>
+<section class="promo">
+<h2>Une histoire commence ici…</h2>
+<p>
+Prenez un moment pour vous évader.
+Ouvrez un roman, découvrez un personnage,
+entrez dans un univers et laissez-vous surprendre
+par ce qui vous attend à la prochaine page.
+</p>
+<a class="btn" href="#romans">Choisir mon prochain roman</a>
 </section>
 
-<section class="about">
+<section class="about" id="apropos">
 <h2>Bienvenue chez AURELIVRA</h2>
-<p>Une plateforme dédiée aux passionnés de lecture et aux créateurs d'histoires. Découvrez des romans écrits par des auteurs humains ou créés avec l'aide de l'intelligence artificielle. Chaque histoire mérite sa place.</p>
+<p>
+AURELIVRA est un espace consacré à la découverte
+des romans et des histoires imaginaires.
+Des univers mystérieux, des émotions intenses,
+des aventures fascinantes et des récits qui restent
+dans votre mémoire.
+</p>
+<p>
+Lisez à votre rythme. Explorez de nouveaux univers.
+Et surtout, trouvez l'histoire qui vous fera voyager.
+</p>
 </section>
+
 </main>
 
 <footer>
 <p>© 2026 AURELIVRA — Tous droits réservés.</p>
 <p>Le monde des histoires vous attend.</p>
-<p>Accueil · Bibliothèque · Auteurs</p>
+<p>Accueil · Genres · Bibliothèque · À propos</p>
 </footer>
 
 <script>
@@ -164,6 +213,7 @@ const categories=book.dataset.category||"";
 book.style.display=categories.includes(category)?"block":"none";
 });
 document.getElementById("romans").scrollIntoView({behavior:"smooth"});
+document.getElementById("search").value="";
 }
 
 function searchBooks(){
